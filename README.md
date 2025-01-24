@@ -3,7 +3,8 @@ WebサイトがシューティングゲームになるChrome 拡張機能です�
 ページ内のテキストが攻撃してくるので、避けながらテキストを破壊していきます。
 
 ## Demo
-https://github.com/user-attachments/assets/7c868fc1-5b42-4217-8ab4-c7212febe9cc
+https://github.com/user-attachments/assets/ab02dfc1-7788-4800-9d4c-8a35e7a79cfc
+
 
 ## インストール方法
 1. Chrome拡張機能ページを開きます。  
@@ -14,13 +15,13 @@ https://github.com/user-attachments/assets/7c868fc1-5b42-4217-8ab4-c7212febe9cc
 
 ## 遊び方
 
-#### ゲームの始め方
+### ゲームの始め方
 - **スタート**  
 [ctrl] + [S]キー
 - **リセット**  
 [ctrl] + [R]キー
 
-#### プレイヤーの操作方法
+### プレイヤーの操作方法
 - **移動**  
 マウス
 - **ショット**  
@@ -29,7 +30,7 @@ https://github.com/user-attachments/assets/7c868fc1-5b42-4217-8ab4-c7212febe9cc
 [X]キー  
 (画面内のテキストと弾を全て破壊します)
 
-#### アイテム (テキストを200個破壊ごとに出現)
+### アイテム (テキストを200個破壊ごとに出現)
 - 🏥  
 ライフが1つ回復
 - 💥  
@@ -38,7 +39,7 @@ https://github.com/user-attachments/assets/7c868fc1-5b42-4217-8ab4-c7212febe9cc
 ショットが1段階UP  
 (最大2段階までUP可能)
 
-#### ステータス
+### ステータス
 - **SCORE**  
 破壊したテキストの数
 - ▃  
@@ -47,7 +48,7 @@ https://github.com/user-attachments/assets/7c868fc1-5b42-4217-8ab4-c7212febe9cc
 - 💥  
 ボムを使える回数
   
-#### その他
+### その他
 - スクロール中は敵の当たり判定が無効になります。  
 - iframeコンテンツのテキストは対象外になります。  
 - iframe上ではプレイヤーの移動ができなくなります。
