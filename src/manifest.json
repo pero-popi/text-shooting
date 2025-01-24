@@ -1,0 +1,62 @@
+{
+  "name": "テキストシューティング",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "登場キャラクターは全てテキスト！Webページのテキストが攻撃してくるので、避けながら破壊していくChrome拡張機能のシューティングゲームです。",
+  "content_security_policy": {
+    "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' 'inline-speculation-rules' http://localhost:* http://127.0.0.1:*; object-src 'self'; img-src 'self' data:; worker-src blob:"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["style.css"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["main.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["sounds/beam.mp3"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["sounds/damage1.mp3"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["sounds/damage2.mp3"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["sounds/bom.mp3"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["sounds/item.mp3"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["sounds/start.mp3"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["sounds/dead.mp3"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": "icons/icon128.png",
+    "default_popup": "popup.html"
+  }
+}

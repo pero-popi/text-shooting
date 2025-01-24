@@ -1,0 +1,369 @@
+@charset "UTF-8";
+
+:root {
+  --z-index: 2147483647;
+  --z-index2: 2147483646;
+  --color-white: #FFF;
+  --color-black: #000;
+  --color-red: #F00;
+  --color-gray: #909090;
+  --color-main: #008CD6;
+}
+
+body {
+  &.is-active {
+    * {
+      cursor: none !important;
+    }
+  }
+  &.is-bomber {
+    &::after {
+      width: 100vw;
+      height: 100vh;
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: var(--z-index);
+      opacity: 0.3;
+      background: var(--color-main);
+    }
+  }
+}
+
+char {
+  transition: opacity 0.3s;
+  &.is-active {
+    position: fixed;
+    z-index: var(--z-index);
+    display: flex;
+    align-items: center;
+  }
+  &.is-fire {
+    animation: shot 0.2s none;
+  }
+  &.is-hide {
+    color: var(--color-main);
+    opacity: 0;
+    text-shadow: 0 1px 2px var(--color-main), 0 0 3px #fff, 2px 4px 6px var(--color-main);
+  }
+}
+
+fighter {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  font-family: arial, sans-serif !important;
+  line-height: 0;
+  transform: rotate(-45.5deg);
+  z-index: var(--z-index);
+  cursor: none;
+  pointer-events: none;
+  display: block;
+  box-sizing: border-box;
+  text-shadow: 4px 10px 4px rgba(0, 0, 0, 20%);
+  &::before {
+    width: 100%;
+    height: 100%;
+    content: "✈️";
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 28px;
+    font-family: arial, sans-serif !important;
+    line-height: 0;
+  }
+  &.is-active {
+    display: block;
+  }
+  &.is-hide {
+    display: none;
+  }
+  &.is-damage {
+    text-shadow: 0px 0px 6px rgba(255, 0, 0, 100%);
+  }
+}
+
+shot-fighter {
+  font-size: 20px;
+  font-family: arial, sans-serif !important;
+  line-height: 0;
+  position: fixed;
+  z-index: var(--z-index2);
+  cursor: none;
+  pointer-events: none;
+  color: var(--color-main);
+  display: none;
+  box-sizing: border-box;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 20%);
+  &.is-active {
+    display: block;
+  }
+  &.is-hide {
+    display: none;
+  }
+}
+
+shot-enemy {
+  font-size: 20px;
+  font-family: arial, sans-serif !important;
+  line-height: 0;
+  position: fixed;
+  z-index: var(--z-index2);
+  cursor: none;
+  pointer-events: none;
+  color: var(--color-red);
+  display: none;
+  box-sizing: border-box;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 20%);
+  &.is-active {
+    display: block;
+  }
+  &.is-hide {
+    display: none;
+  }
+}
+
+status {
+  width: 193px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: var(--z-index);
+  font-size: 18px;
+  line-height: 1;
+  padding: 10px 10px 4px;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 30%);
+  font-family: arial, sans-serif !important;
+  visibility: hidden;
+  box-sizing: border-box;
+  &.is-show {
+    visibility: visible;
+  }
+  score {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 15px;
+    margin-bottom: 5px;
+    > div {
+      display: flex;
+      align-items: center;
+      padding-right: 2px;
+    }
+  }
+  point {
+    div {
+      margin-right: 10px;
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  start {
+    font-size: 15px;
+    visibility: hidden;
+    div {
+      margin-top: 5px;
+      margin-right: 5px;
+      cursor: auto;
+      color: var(--color-gray);
+      &.is-active {
+        color: var(--color-black);
+        cursor: pointer;
+      }
+    }
+  }
+  reset {
+    padding-right: 3px;
+    font-size: 25px;
+    visibility: hidden;
+    div {
+      cursor: pointer;
+      color: var(--color-black);
+      &.is-hide {
+        color: var(--color-gray);
+        cursor: auto;
+      }
+    }
+  }
+  life {
+    width: 100%;
+    height: 8px;
+    display: block;
+    margin-bottom: -1px;
+    div {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      &::after {
+        width: 100%;
+        height: 100%;
+        content: "▃▃▃▃▃▃▃▃▃▃";
+        color: var(--color-main);
+        font-size: 15.5px;
+        font-family: arial, sans-serif !important;
+        line-height: 0%;
+        letter-spacing: 0.1em;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  &.is-0 {
+    life {
+      div {
+        &::after {
+          content: "";
+        }
+      }
+    }
+  }
+  &.is-1 {
+    life {
+      div {
+        &::after {
+          content: "▃";
+        }
+      }
+    }
+  }
+  &.is-2 {
+    life {
+      div {
+        &::after {
+          content: "▃▃";
+        }
+      }
+    }
+  }
+  &.is-3 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃";
+        }
+      }
+    }
+  }
+  &.is-4 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃▃";
+        }
+      }
+    }
+  }
+  &.is-5 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃▃▃";
+        }
+      }
+    }
+  }
+  &.is-6 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃▃▃▃";
+        }
+      }
+    }
+  }
+  &.is-7 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃▃▃▃▃";
+        }
+      }
+    }
+  }
+  &.is-8 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃▃▃▃▃▃";
+        }
+      }
+    }
+  }
+  &.is-9 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃▃▃▃▃▃▃";
+        }
+      }
+    }
+  }
+  &.is-10 {
+    life {
+      div {
+        &::after {
+          content: "▃▃▃▃▃▃▃▃▃▃";
+        }
+      }
+    }
+  }
+  bomber {
+    display: block;
+    height: 23px;
+    padding-right: 4px;
+    font-size: 19px;
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+  }
+}
+
+item {
+  display: block;
+  font-size: 28px;
+  font-family: arial, sans-serif !important;
+  line-height: 0;
+  position: fixed;
+  z-index: var(--z-index);
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 20%);
+}
+
+start-text {
+  font-family: arial, sans-serif !important;
+  font-size: 10vw;
+  line-height: 1.3 !important;
+  pointer-events: none;
+  white-space: nowrap;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-index);
+  color: var(--color-white);
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 100%);
+  span {
+    font-size: 5vw;
+    display: block;
+  }
+}
+
+@keyframes shot {
+  0% {
+    color: var(--color-red);
+    text-shadow: 0px 0px 2px var(--color-red);
+  }
+  100% {
+    color: var(--color-red);
+    text-shadow: 0px 0px 2px var(--color-red);
+  }
+}
