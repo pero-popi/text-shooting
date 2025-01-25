@@ -171,7 +171,7 @@ class Main {
         this.#startSound.play()
       })
       document.addEventListener('keydown', (event) => {
-        if (event.ctrlKey) {
+        if (event.shiftKey) {
           if (event.code === 'KeyS') {
             this.#start.click()
           } else if (event.code === 'KeyR') {

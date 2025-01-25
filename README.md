@@ -17,9 +17,9 @@ https://github.com/user-attachments/assets/ab02dfc1-7788-4800-9d4c-8a35e7a79cfc
 
 ### ゲームの始め方
 - **スタート**  
-[ctrl] + [S]キー
+[shift] + [S]キー
 - **リセット**  
-[ctrl] + [R]キー
+[shift] + [R]キー
 
 ### プレイヤーの操作方法
 - **移動**  
